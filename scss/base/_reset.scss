@@ -1,0 +1,131 @@
+// Reset de base
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Import des polices Google
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// Base HTML et Body
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    will-change: transform;
+    background-color: $main-bg;
+    color: $text-dark;
+    overflow-x: hidden;
+}
+
+// Typographie de base
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    color: $text-light;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+        1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+        1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+        1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.4),
+        1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+        1px 30px 60px rgba(16, 16, 16, 0.4);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: $text-light;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+
+    @include tablet {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+    
+    @include mobile {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    
+    @include small-mobile {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    &::after {
+        @include pseudo;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: $gradient-primary;
+        border-radius: 10px;
+        background-size: 200% 200%;
+        animation: gradient-shift 4s ease infinite;
+    }
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    font-family: "Poppins", sans-serif;
+
+    @include tablet {
+        font-size: 1.1rem;
+    }
+
+    @include mobile {
+        font-size: 1rem;
+    }
+
+    @include small-mobile {
+        font-size: 0.95rem;
+        line-height: 1.4em;
+    }
+}
+
+// Style spécifique pour le texte "À propos"
+.about-content {
+    font-size: 1.15rem;
+    line-height: 1.7em;
+
+    @include tablet {
+        font-size: 1.05rem;
+        line-height: 1.6em;
+    }
+
+    @include mobile {
+        font-size: 1rem;
+        line-height: 1.5em;
+    }
+
+    @include small-mobile {
+        font-size: 0.9rem;
+        line-height: 1.4em;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

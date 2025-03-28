@@ -1,0 +1,84 @@
+// Flexbox
+@mixin flex(
+    $direction: row,
+    $justify: flex-start,
+    $align: flex-start,
+    $wrap: nowrap
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+// Centrage absolu
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Transitions
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+// Responsive
+@mixin tablet {
+    @media screen and (max-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@mixin small-mobile {
+    @media screen and (max-width: $breakpoint-small) {
+        @content;
+    }
+}
+
+// Animations
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Pseudo-éléments
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// Box-shadow
+@mixin box-shadow($shadow...) {
+    box-shadow: $shadow;
+}
+
+// Effet de carte
+@mixin card {
+    background: $secondary-bg;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    position: relative;
+}
+
+// Hover effect pour les cartes
+@mixin card-hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+// Effet de bordure
+@mixin border-left($color: $primary-color, $width: 4px) {
+    border-left: $width solid $color;
+}

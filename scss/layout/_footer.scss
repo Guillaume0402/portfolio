@@ -1,0 +1,147 @@
+// Styles du footer
+footer {
+    background-color: #151520;
+    padding: 50px 0 30px;
+    position: relative;
+
+    &::before {
+        @include pseudo;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: $gradient-primary;
+        border-radius: 5px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+        justify-content: end;
+        padding-left: 15%;
+
+        @include tablet {
+            padding-left: 5%;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            text-align: center;
+            padding-left: 0;
+            justify-content: center;
+        }
+    }
+
+    .footer-nav {
+        h4 {
+            color: $text-light;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                @include pseudo;
+                bottom: -8px;
+                left: 0;
+                width: 40px;
+                height: 2px;
+                background: $accent-color;
+                border-radius: 3px;
+
+                @include mobile {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 10px;
+
+                a {
+                    color: $text-muted;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                    font-size: 0.95rem;
+
+                    &:hover {
+                        color: $accent-light;
+                    }
+                }
+            }
+        }
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: flex-start;
+
+        @include mobile {
+            justify-content: center;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: $primary-color;
+                transform: translateY(-3px);
+            }
+
+            &:nth-child(1):hover {
+                background: #6e1515;
+            }
+
+            &:nth-child(2):hover {
+                background: $github-color;
+            }
+
+            &:nth-child(3):hover {
+                background: $github-color;
+            }
+
+            img {
+                width: 18px;
+                height: 18px;
+                filter: brightness(1.2);
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 10px;
+
+        p {
+            color: $text-muted;
+            font-size: 0.9rem;
+
+            span {
+                color: $accent-light;
+            }
+        }
+    }
+
+    @include mobile {
+        padding: 40px 20px 20px;
+    }
+}

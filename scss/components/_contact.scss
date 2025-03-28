@@ -1,0 +1,198 @@
+// Styles pour la section de contact
+.contact-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    @include mobile {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    @include small-mobile {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    width: 100%;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    @include small-mobile {
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        gap: 12px;
+    }
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    border-radius: $border-radius;
+    padding: 25px;
+    transition: all 0.4s ease;
+    border-left: 3px solid $primary-color;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+    @include tablet {
+        padding: 20px;
+    }
+
+    @include mobile {
+        padding: 15px;
+    }
+
+    @include small-mobile {
+        padding: 12px 10px;
+        width: 100%;
+        margin: 0;
+        border-radius: 8px;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        border-left: 3px solid $accent-color;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    // Styles spécifiques pour chaque service
+    &:nth-child(1):hover .contact-icon {
+        background: $gmail-color;
+    }
+
+    &:nth-child(2):hover .contact-icon {
+        background: $twitter-color;
+    }
+
+    &:nth-child(3):hover .contact-icon {
+        background: $linkedin-color;
+
+        img {
+            filter: brightness(2);
+        }
+    }
+
+    &:nth-child(4):hover .contact-icon {
+        background: $github-color;
+
+        img {
+            filter: brightness(2);
+        }
+    }
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.8);
+    transition: all 0.3s ease;
+
+    @include tablet {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    @include mobile {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+
+    @include small-mobile {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        transition: all 0.4s ease;
+        filter: brightness(0.9);
+
+        @include mobile {
+            width: 22px;
+            height: 22px;
+        }
+
+        @include small-mobile {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; // Empêche le texte de déborder
+}
+
+.contact-label {
+    font-size: 0.9rem;
+    color: $text-muted;
+    margin-bottom: 5px;
+
+    @include mobile {
+        font-size: 0.8rem;
+    }
+
+    @include small-mobile {
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+    }
+}
+
+.contact-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-light;
+
+    @include mobile {
+        font-size: 1rem;
+    }
+
+    @include small-mobile {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

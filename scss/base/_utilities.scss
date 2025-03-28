@@ -1,0 +1,187 @@
+// Classes Flexbox
+.flex {
+    display: flex;
+}
+
+.space-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-direction: column;
+}
+
+// Classes d'espacement
+.gap20 {
+    gap: 20px;
+
+    @include small-mobile {
+        gap: 10px;
+    }
+}
+
+// Classes de largeur
+.w10 {
+    width: 10%;
+
+    @include mobile {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+.w25 {
+    width: 25%;
+
+    @include mobile {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    @include small-mobile {
+        width: 47%; // Pour avoir 2 éléments par ligne avec une petite marge
+        margin-bottom: 15px;
+    }
+}
+
+.w32 {
+    width: 32%;
+
+    @include mobile {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+.w40 {
+    width: 40%;
+
+    @include mobile {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+.w60 {
+    width: 60%;
+
+    @include mobile {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+// Classes de texte
+.text-center {
+    text-align: center;
+}
+
+// Container boxed
+.boxed {
+    max-width: $max-width;
+    margin: 0 auto;
+    animation: fadeIn 0.7s ease forwards;
+}
+
+// Conteneur de contenu
+.content-box {
+    @include card;
+    padding: 50px 30px;
+    @include border-left;
+
+    @include tablet {
+        padding: 40px 25px;
+    }
+
+    @include mobile {
+        padding: 30px 20px;
+    }
+
+    @include small-mobile {
+        padding: 25px 15px;
+    }
+
+    &::before {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+            circle at 10px 10px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 0
+        );
+        background-size: 20px 20px;
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    h2 {
+        color: $text-light;
+
+        &::after {
+            background: linear-gradient(135deg, $success-color, $accent-light);
+        }
+    }
+
+    &.dark {
+        background: linear-gradient(
+                rgba(21, 21, 45, 0.95),
+                rgba(21, 21, 45, 0.95)
+            ),
+            url(../img/web-programming-languages.webp);
+        background-size: cover;
+        color: $text-light;
+        border-left: 4px solid $accent-color;
+
+        &::before {
+            @include pseudo;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(67, 97, 238, 0.1) 0%,
+                transparent 70%
+            );
+            z-index: 0;
+        }
+
+        h2 {
+            color: $text-light;
+        }
+    }
+}
+
+// Conteneurs de section
+.section {
+    padding: 90px 40px;
+    position: relative;
+
+    @include mobile {
+        padding: 70px 30px;
+    }
+
+    @include small-mobile {
+        padding: 45px 25px; // Réduction de moitié du padding vertical pour small-mobile
+    }
+}

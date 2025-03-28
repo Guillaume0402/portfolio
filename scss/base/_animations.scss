@@ -1,0 +1,101 @@
+// Définition des animations keyframes
+@include keyframes(gradient-shift) {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@include keyframes(fadeIn) {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Animation du titre
+.title {
+    position: relative;
+}
+
+// Style pour tous les spans à l'intérieur des span-container
+.span-container span {
+    @include transition(0.3s, cubic-bezier(0.175, 0.885, 0.32, 1.275));
+    will-change: transform;
+    display: inline-block;
+    white-space: pre;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+// Style pour les spans individuels créés par JS
+.span-container span span {
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.s1,
+.s2 {
+    @include absolute-center;
+    width: max-content;
+}
+
+.s1 span {
+    transform-origin: bottom;
+}
+
+.s2 span {
+    transform-origin: top;
+    transform: translateY(100%) rotateX(90deg);
+}
+
+.title:hover {
+    .s1 span {
+        transform: translateY(-100%) rotateX(-90deg);
+    }
+
+    .s2 span {
+        transform: translateY(0%) rotateX(0deg);
+    }
+}
+
+// Animation des slides
+.from-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    @include transition(all, 0.7s, cubic-bezier(0.22, 1, 0.36, 1));
+
+    &.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.from-right {
+    opacity: 0;
+    transform: translateX(30px);
+    @include transition(all, 0.7s, cubic-bezier(0.22, 1, 0.36, 1));
+
+    &.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Responsive fix pour très petits écrans
+@include small-mobile {
+    .from-left.visible,
+    .from-right.visible {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}

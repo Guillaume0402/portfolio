@@ -1,0 +1,21 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio personnel de Guillaume Maignaut",
+    "main": "index.html",
+    "scripts": {
+        "sass": "sass scss/main.scss:styles/main.css",
+        "sass:watch": "sass --watch scss/main.scss:styles/main.css",
+        "build": "sass scss/main.scss:styles/main.css --style compressed"
+    },
+    "keywords": [
+        "portfolio",
+        "developpeur",
+        "web"
+    ],
+    "author": "Guillaume Maignaut",
+    "license": "MIT",
+    "devDependencies": {
+        "sass": "^1.66.1"
+    }
+}

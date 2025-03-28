@@ -1,0 +1,150 @@
+// Styles du header
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(18, 18, 18, 0.9);
+    box-shadow: $box-shadow;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+// Navigation
+nav {
+    @include flex(row, space-between, center);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+// Logo
+.header-logo {
+    img {
+        width: 120px;
+        @include transition(transform);
+
+        @include tablet {
+            width: 100px;
+        }
+
+        @include mobile {
+            width: 90px;
+        }
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+    }
+}
+
+// Menu principal
+.header-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 1.5rem;
+
+    @include tablet {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 60vh;
+        background-color: rgba(18, 18, 18, 0.98);
+        flex-direction: column;
+        padding: 80px 0 20px;
+        box-shadow: $box-shadow;
+        z-index: 99;
+        justify-content: center;
+
+        li {
+            margin: 15px 0;
+
+            a {
+                text-align: center;
+                font-size: 1.2rem;
+                padding: 15px 20px;
+            }
+        }
+    }
+
+    li a {
+        border: none;
+        margin: 0 15px;
+        text-decoration: none;
+        color: $text-light;
+        padding: 10px 20px;
+        display: block;
+        box-sizing: border-box;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        @include transition;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            @include pseudo;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: $gradient-primary;
+            transition: width 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        &:hover {
+            color: $primary-color;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Menu burger pour mobile
+.burger,
+#toggle {
+    display: none;
+}
+
+@include tablet {
+    label.burger {
+        width: 40px;
+        height: 40px;
+        @include flex(row, center, center);
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: $accent-light;
+        cursor: pointer;
+        background: rgba(67, 97, 238, 0.1);
+        border-radius: 50%;
+        @include transition;
+        display: flex;
+        z-index: 1000;
+
+        &:hover {
+            background: $primary-color;
+            color: $text-light;
+        }
+    }
+
+    .header-logo {
+        margin: 0 auto;
+        position: relative;
+        z-index: 1000;
+    }
+
+    #toggle:checked ~ .header-menu {
+        display: flex;
+    }
+}

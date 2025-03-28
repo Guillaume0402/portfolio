@@ -1,0 +1,108 @@
+// Styles pour les compétences
+.skill {
+    background: #262626;
+    border-radius: $border-radius;
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: $box-shadow;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-bottom: 3px solid $primary-color;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(0);
+    text-align: center;
+
+    @include mobile {
+        margin-bottom: 25px;
+        padding: 20px 15px;
+    }
+
+    @include small-mobile {
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            $primary-light,
+            transparent
+        );
+        transition: all 0.5s ease;
+        z-index: -1;
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+
+        &::before {
+            opacity: 1;
+        }
+
+        img {
+            transform: scale(1.08) rotate(3deg);
+        }
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 4px 6px $shadow-color);
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include small-mobile {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 12px;
+        }
+    }
+
+    h3 {
+        color: $text-light;
+        margin-top: 10px;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        @include small-mobile {
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        &::after {
+            @include pseudo;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: $gradient-primary;
+            border-radius: 10px;
+
+            @include small-mobile {
+                width: 30px;
+                height: 2px;
+                bottom: -5px;
+            }
+        }
+    }
+}
