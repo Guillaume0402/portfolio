@@ -1071,8 +1071,8 @@ footer .copyright p span {
 @media screen and (max-width: 480px) {
   .contact-item {
     padding: 12px 10px;
-    width: 100%;
-    margin: 0;
+    width: 90%;
+    margin: 0 auto;
     border-radius: 8px;
   }
 }
@@ -1180,6 +1180,7 @@ footer .copyright p span {
 }
 @media screen and (max-width: 480px) {
   .contact-label {
+    text-align: start;
     font-size: 0.75rem;
     margin-bottom: 3px;
   }

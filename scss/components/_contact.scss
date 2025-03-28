@@ -61,10 +61,10 @@
         padding: 15px;
     }
 
-    @include small-mobile {
+    @include small-mobile {       
         padding: 12px 10px;
-        width: 100%;
-        margin: 0;
+        width: 90%;
+        margin: 0 auto;
         border-radius: 8px;
     }
 
@@ -162,6 +162,7 @@
 .contact-info {
     display: flex;
     flex-direction: column;
+    // margin: auto;    
     overflow: hidden; // Empêche le texte de déborder
 }
 
@@ -175,12 +176,14 @@
     }
 
     @include small-mobile {
+        text-align: start;
         font-size: 0.75rem;
         margin-bottom: 3px;
     }
 }
 
 .contact-value {
+    
     font-size: 1.1rem;
     font-weight: 600;
     color: $text-light;
@@ -190,6 +193,7 @@
     }
 
     @include small-mobile {
+        
         font-size: 0.9rem;
         white-space: nowrap;
         overflow: hidden;
