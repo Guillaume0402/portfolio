@@ -1,0 +1,63 @@
+<footer class="site-footer" role="contentinfo">
+    <div class="boxed">
+        <div class="footer-content">
+
+            <!-- Bloc navigation -->
+            <nav class="footer-nav" aria-label="Navigation pied de page">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/#a-propos">À&nbsp;propos</a></li>
+                    <li><a href="/#competences">Compétences</a></li>
+                    <li><a href="/#realisations">Réalisations</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/mentions-legales" class="<%= req.originalUrl.startsWith('/mentions-legales') ? 'is-active' : '' %>"
+                        aria-current="<%= req.originalUrl.startsWith('/mentions-legales') ? 'page' : undefined %>">
+                        Mentions Légles
+                    </a></li>
+                </ul>
+            </nav>
+
+            <!-- Bloc compétences -->
+            <nav class="footer-nav" aria-label="Liens compétences">
+                <h4>Compétences</h4>
+                <ul>
+                    <li><a href="/#competences">PHP / Symfony</a></li>
+                    <li><a href="/#competences">JavaScript</a></li>
+                    <li><a href="/#competences">HTML / CSS</a></li>
+                    <li><a href="/#competences">Angular</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bloc contact & réseaux sociaux -->
+            <div class="footer-nav">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:g.maignaut@gmail.com">g.maignaut@gmail.com</a></li>
+                    <li><a href="https://www.linkedin.com/in/YomMgt" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://github.com/Guillaume0402" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+
+                <div class="social-links">
+                    <a href="mailto:g.maignaut@gmail.com" aria-label="Email">
+                        <img src="/img/svg/gmail.svg" alt="Gmail">
+                    </a>
+                    <a href="https://www.linkedin.com/in/YomMgt" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <img src="/img/svg/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/Guillaume0402" target="_blank" rel="noopener" aria-label="GitHub">
+                        <img src="/img/svg/github.svg" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- /.footer-content -->
+
+        <div class="copyright">
+            <p>
+                © <%= new Date().getFullYear() %>
+                    <span>Guillaume Maignaut</span> • Développeur web passionné • Tous droits réservés
+            </p>
+        </div>
+    </div><!-- /.boxed -->
+</footer>

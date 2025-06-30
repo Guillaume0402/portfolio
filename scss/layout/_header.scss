@@ -11,7 +11,7 @@ header {
     -webkit-backdrop-filter: blur(10px);
 }
 
-// Navigation
+Navigation
 nav {
     @include flex(row, space-between, center);
     padding: 0px 20px;

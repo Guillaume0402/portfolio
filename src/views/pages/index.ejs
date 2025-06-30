@@ -1,0 +1,135 @@
+<% /* ---- Variables SEO & scripts spécifiques ---- */ %>
+    <% title='Guillaume Maignaut | Développeur Full-Stack' ;
+        metaDescription='Portfolio de Guillaume Maignaut, développeur web full-stack spécialisé en PHP, JavaScript, Symfony et Angular.'
+        ; ogTitle=title; ogDescription=metaDescription; ogImageUrl='/img/svg/LogoGM7-removebg.png' ; /* slot de scripts
+        juste pour l’accueil */ pageScripts=` <script type="module" src="/js/app.js">
+        </script>
+        `;
+        %>
+
+        <!-- ======================= HERO / SLIDER ======================= -->
+        <div class="slider">
+            <img src="/img/is_web.avif" class="slider-background" alt="Fond d'écran développement web">
+
+            <div class="slider-content">
+                <h1 class="title">
+                    <div class="span-container s1"><span>Guillaume Maignaut</span></div>
+                    <div class="span-container s2"><span>Guillaume Maignaut</span></div>
+                </h1>
+                <p id="para">Développeur full-stack</p>
+            </div>
+        </div>
+
+        <!-- ======================= CONTACT ======================= -->
+        <section class="section contact-section from-right">
+            <div class="boxed text-center">
+                <h2 id="contact">Contactez-moi</h2>
+
+                <div class="contact-grid">
+                    <a class="contact-item" href="mailto:g.maignaut@gmail.com" aria-label="Envoyer un email">
+                        <div class="contact-icon"><img src="/img/svg/gmail.svg" alt="Logo Gmail"></div>
+                        <div class="contact-info">
+                            <span class="contact-label">E-mail</span>
+                            <span class="contact-value">g.maignaut@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a class="contact-item" href="https://www.linkedin.com/in/YomMgt" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <div class="contact-icon"><img src="/img/svg/linkedin.svg" alt="Logo LinkedIn">
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">YomMgt</span>
+                        </div>
+                    </a>
+
+                    <a class="contact-item" href="https://github.com/Guillaume0402" target="_blank" rel="noopener"
+                        aria-label="GitHub">
+                        <div class="contact-icon"><img src="/img/svg/github.svg" alt="Logo GitHub">
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">Guillaume0402</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= À PROPOS ======================= -->
+        <section class="section from-left">
+            <div class="boxed">
+                <div class="content-box">
+                    <h2 id="a-propos" class="text-center">À propos de moi</h2>
+                    <p class="about-content emoji">
+                        👋 Salut, moi c’est <strong>Guillaume</strong> !<br>
+                        Développeur&nbsp;web&nbsp;full-stack, j’aime transformer une idée griffonnée sur un post-it
+                        en&nbsp;application
+                        vivante&nbsp; du back&nbsp;PHP / Symfony jusqu’au front réactif en&nbsp;JavaScript.<br>
+                        ⚡ Quand je ne code pas, je décortique l’actu tech ou je peaufine un side-project (souvent
+                        autour des APIs et de l’automatisation).<br>
+                        ☕ Addict au café long, aux bons challenges et aux interfaces soignées, je
+                        crois qu’un code lisible et une UX claire valent mieux que mille slides.<br>
+                        👉 Si vous cherchez un développeur qui parle autant “perf serveur” que “pixels
+                        alignés”, vous êtes au bon endroit !
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= RÉALISATIONS ======================= -->
+        <section class="section from-right">
+            <div class="boxed text-center">
+                <h2 id="realisations">Mes réalisations</h2>
+
+                <div class="flex space-between wrap gap20">
+                    <a class="w32 realisation" href="#">
+                        <img src="/img/check-it.png" alt="Capture du projet Todo-List">
+                        <h3>Site de Todo-List</h3>
+                    </a>
+                    <a class="w32 realisation" href="#">
+                        <img src="/img/techtrendz.png" alt="Capture du Blog Tech">
+                        <h3>Blog Tech</h3>
+                    </a>
+                    <a class="w32 realisation" href="#">
+                        <img src="/img/okaz.png" alt="Capture de la boutique Okaz">
+                        <h3>Boutique Occasion</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= COMPÉTENCES ======================= -->
+        <section class="section from-left">
+            <div class="boxed">
+                <div class="content-box dark">
+                    <h2 id="competences">Découvrez mes compétences</h2>
+
+                    <div class="flex gap20 wrap space-between">
+                        <div class="w25 skill"><img src="/img/svg/html-5.svg" alt="HTML5">
+                            <h3>HTML5</h3>
+                        </div>
+                        <div class="w25 skill"><img src="/img/svg/css-3.svg" alt="CSS3">
+                            <h3>CSS</h3>
+                        </div>
+                        <div class="w25 skill"><img src="/img/svg/php.svg" alt="PHP">
+                            <h3>PHP</h3>
+                        </div>
+                        <div class="w25 skill"><img src="/img/svg/javascript.svg" alt="JavaScript">
+                            <h3>JavaScript</h3>
+                        </div>
+                        <div class="w25 skill"><img src="/img/svg/symfony.svg" alt="Symfony">
+                            <h3>Symfony</h3>
+                        </div>
+                        <div class="w25 skill"><img src="/img/svg/angular.svg" alt="Angular">
+                            <h3>Angular</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% /* autres variables … */ pageScripts=` <script type="module" src="/js/app.js">
+            </script>
+            `;
+            %>

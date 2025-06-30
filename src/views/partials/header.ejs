@@ -1,0 +1,39 @@
+<header class="site-header" role="banner">
+    <div class="boxed">
+        <!-- Burger menu (mobile) -->
+        <nav class="flex alignItemsCenter space-between" aria-label="Navigation principale">
+            <label class="burger" for="toggle">☰</label>
+            <input type="checkbox" id="toggle" />
+
+            <!-- Logo -->
+            <a href="/" class="header-logo" aria-label="Accueil – Guillaume Maignaut">
+                <!-- Chemin absolu car /public est servi par Express -->
+                <img src="/img/LogoGM8.png" width="120" alt="Logo Guillaume Maignaut">
+            </a>
+
+            <!-- Menu -->
+            <ul class="header-menu">
+                <li>
+                    <a href="/" class="<%= req.originalUrl === '/' ? 'is-active' : '' %>"
+                        aria-current="<%= req.originalUrl === '/' ? 'page' : undefined %>">
+                        Accueil
+                    </a>
+                </li>
+                <!-- Les ancres (#) ne sont valables que sur la page d’accueil ;
+on ajoute la classe active seulement si l’URL courante est / -->
+                <li><a href="/#a-propos">À&nbsp;propos</a></li>
+                <li><a href="/#competences">Compétences</a></li>
+                <li><a href="/#realisations">Réalisations</a></li>
+                <li>
+                    <a href="/cv" class="<%= req.originalUrl.startsWith('/cv') ? 'is-active' : '' %>"
+                        aria-current="<%= req.originalUrl.startsWith('/cv') ? 'page' : undefined %>">
+                        CV
+                    </a>
+                </li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+
+    </div>
+</header>

@@ -1,0 +1,88 @@
+<% /* --- variables SEO spécifiques --- */ %>
+    <% title='CV | Guillaume Maignaut' ;
+        metaDescription='Découvrez le parcours professionnel et les compétences de Guillaume Maignaut, développeur web full-stack.'
+        ; ogTitle=title; ogDescription=metaDescription; pagePath=req.originalUrl; /*=> /cv */
+        %>
+
+        <% /* --- scripts propres à cette page (FontAwesome) --- */ %>
+            <% pageScripts=` <script src="https://kit.fontawesome.com/8f12efb992.js" crossorigin="anonymous" defer>
+                </script>
+                `;
+                %>
+
+                <!-- =========== BANNIÈRE / EN-TÊTE DE PAGE (réutilise les classes existantes) =========== -->
+                <section class="head head-boxed">
+                    <div class="imgProfil">
+                        <img src="/img/photo_profil.jpg" alt="Avatar Guillaume Maignaut">
+                    </div>
+                    <div class="nom">
+                        <h1 class="nomProfil">Guillaume Maignaut</h1>
+                        <h2 class="titreProfil">Développeur PHP</h2>
+                    </div>
+                </section>
+
+                <main class="container page-cv">
+                    <!-- =========== DIPLÔME =========== -->
+                    <section id="diplome">
+                        <h2>Diplôme</h2>
+                        <p><strong>Certificat d’Aptitude Professionnelle Restaurant</strong></p>
+                        <p class="annee">10 juillet 2001</p>
+                    </section>
+
+                    <!-- =========== EXPÉRIENCES =========== -->
+                    <section id="experiences">
+                        <h2>Expériences</h2>
+
+                        <article class="expe">
+                            <h3>Développeur Web – TERRA AQUATICA</h3>
+                            <p class="expe-date">juil. 2011 – déc. 2024</p>
+                            <p class="expe-descp">
+                                Développement et optimisation du site e-commerce, intégration produit,
+                                automatisation de processus internes.
+                            </p>
+                        </article>
+
+                        <article class="expe">
+                            <h3>Employé Polyvalent – AU COMPTOIR</h3>
+                            <p class="expe-date">mai 2009 – fév. 2010</p>
+                            <p class="expe-descp">
+                                Support technique & administratif, mise en place d’outils de gestion.
+                            </p>
+                        </article>
+
+                        <article class="expe">
+                            <h3>Assistant informatique – SOCIÉTÉ NOUVELLE GERSICA</h3>
+                            <p class="expe-date">nov. 2001 – juin 2005</p>
+                            <p class="expe-descp">
+                                Suivi des systèmes de gestion internes et maintenance du parc informatique.
+                            </p>
+                        </article>
+                    </section>
+
+                    <!-- =========== LANGAGES =========== -->
+                    <section id="langages">
+                        <h2>Langages</h2>
+                        <div class="frontend">
+                            <figure><img src="/img/icons8-html-100.png" alt="HTML">
+                                <figcaption>HTML</figcaption>
+                            </figure>
+                            <figure><img src="/img/icons8-css-100.png" alt="CSS">
+                                <figcaption>CSS</figcaption>
+                            </figure>
+                            <figure><img src="/img/icons8-javascript-100.png" alt="JavaScript">
+                                <figcaption>JavaScript</figcaption>
+                            </figure>
+                            <figure><img src="/img/icons8-php-100.png" alt="PHP">
+                                <figcaption>PHP</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+                </main>
+
+                <% /* petit script pour l’année dans le footer — on peut le laisser dans main.js ou ici */ %>
+                    <% pageScripts +=` <script>
+                        document.querySelectorAll('#year').forEach(el => el.textContent = new
+                        Date().getFullYear());
+                        </script>
+                        `;
+                        %>

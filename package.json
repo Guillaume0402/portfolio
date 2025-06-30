@@ -2,11 +2,14 @@
     "name": "portfolio",
     "version": "1.0.0",
     "description": "Portfolio personnel de Guillaume Maignaut",
-    "main": "index.html",
+    "type": "module",
+    "main": "src/server.js",
     "scripts": {
-        "sass": "sass scss/main.scss:styles/main.css",
-        "sass:watch": "sass --watch scss/main.scss:styles/main.css",
-        "build": "sass scss/main.scss:styles/main.css --style compressed"
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js",
+        "sass": "sass scss/main.scss:public/css/main.css",
+        "sass:watch": "sass --watch scss:public/css --style expanded",
+        "build": "sass scss/main.scss:public/css/main.css --style compressed"
     },
     "keywords": [
         "portfolio",
@@ -15,7 +18,13 @@
     ],
     "author": "Guillaume Maignaut",
     "license": "MIT",
+    "dependencies": {
+        "ejs": "^3.1.10",
+        "express": "^4.19.0",
+        "express-ejs-layouts": "^2.5.1"
+    },
     "devDependencies": {
+        "nodemon": "^3.0.3",
         "sass": "^1.66.1"
     }
 }

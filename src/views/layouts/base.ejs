@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <% /* ---------- VARIABLES / SEO ---------- */ %>
+        <title>
+            <%= title || 'Guillaume Maignaut | Développeur Full-Stack' %>
+        </title>
+        <meta name="description"
+            content="<%= metaDescription || 'Portfolio de Guillaume Maignaut, développeur web full-stack…' %>" />
+
+        <% /* Canonical & Open Graph ------------- */ %>
+            <% var siteUrl='https://www.guillaumemaignaut.fr' ; var pathHere=(typeof pagePath !=='undefined' ) ?
+                pagePath : ((typeof req !=='undefined' && req.originalUrl) ? req.originalUrl : '/' ); var
+                absolute=siteUrl + pathHere; var ogImg=(typeof ogImageUrl !=='undefined' ) ? ogImageUrl
+                : '/img/svg/LogoGM7-removebg.png' ; %>
+                <link rel="canonical" href="<%= absolute %>" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="<%= absolute %>" />
+                <meta property="og:title" content="<%= ogTitle || title %>" />
+                <meta property="og:description" content="<%= ogDescription || metaDescription %>" />
+                <meta property="og:image" content="<%= ogImg %>" />
+
+                <!-- CSS global -->
+                <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+        <main class="container">
+            <%- body %>
+        </main>
+
+        <%- include('../partials/footer') %>
+
+            <!-- Librairie externe (CDN) : doit venir AVANT app.js -->
+            <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js" defer></script>
+
+            <!-- Scripts globaux -->
+            <script src="/js/main.js" defer></script>
+
+            <!-- Scripts page-spécifiques -->
+            <%- typeof pageScripts !=='undefined' ? pageScripts : '' %>
+</body>
+
+</html>
