@@ -1,5 +1,5 @@
 <footer class="site-footer" role="contentinfo">
-    <div class="boxed">
+    <div class="container">
         <div class="footer-content">
 
             <!-- Bloc navigation -->
@@ -11,10 +11,11 @@
                     <li><a href="/#competences">Compétences</a></li>
                     <li><a href="/#realisations">Réalisations</a></li>
                     <li><a href="/#contact">Contact</a></li>
-                    <li><a href="/mentions-legales" class="<%= req.originalUrl.startsWith('/mentions-legales') ? 'is-active' : '' %>"
-                        aria-current="<%= req.originalUrl.startsWith('/mentions-legales') ? 'page' : undefined %>">
-                        Mentions Légles
-                    </a></li>
+                    <li><a href="/mentions-legales"
+                            class="<%= req.originalUrl.startsWith('/mentions-legales') ? 'is-active' : '' %>"
+                            aria-current="<%= req.originalUrl.startsWith('/mentions-legales') ? 'page' : undefined %>">
+                            Mentions Légales
+                        </a></li>
                 </ul>
             </nav>
 
@@ -59,5 +60,5 @@
                     <span>Guillaume Maignaut</span> • Développeur web passionné • Tous droits réservés
             </p>
         </div>
-    </div><!-- /.boxed -->
+    </div><!-- /.container -->
 </footer>

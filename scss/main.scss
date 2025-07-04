@@ -1,25 +1,9 @@
-// Abstracts
-@import "abstracts/variables";
-@import "abstracts/mixins";
-
-// Base
-@import "base/reset";
-@import "base/utilities";
-@import "base/animations";
-
-// Layout
-@import "layout/header";
-@import "layout/footer";
-
-// Components
-@import "components/slider";
-@import "components/skills";
-@import "components/realisations";
-@import "components/contact";
-
-// Pages
-@import "pages/cv";
-@import "pages/mentions-legales";
+// Sass moderne avec @use au lieu de @import
+@use "abstracts";
+@use "base";
+@use "layout";
+@use "components";
+@use "pages";
 // (aucune page spécifique pour le moment)
 
 // Themes

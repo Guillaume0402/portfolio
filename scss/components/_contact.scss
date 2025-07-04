@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 // Styles pour la section de contact
 .contact-section {
     padding-top: 120px;
@@ -61,7 +63,7 @@
         padding: 15px;
     }
 
-    @include small-mobile {       
+    @include small-mobile {
         padding: 12px 10px;
         width: 90%;
         margin: 0 auto;
@@ -162,7 +164,7 @@
 .contact-info {
     display: flex;
     flex-direction: column;
-    // margin: auto;    
+    // margin: auto;
     overflow: hidden; // Empêche le texte de déborder
 }
 
@@ -183,7 +185,6 @@
 }
 
 .contact-value {
-    
     font-size: 1.1rem;
     font-weight: 600;
     color: $text-light;
@@ -193,7 +194,6 @@
     }
 
     @include small-mobile {
-        
         font-size: 0.9rem;
         white-space: nowrap;
         overflow: hidden;

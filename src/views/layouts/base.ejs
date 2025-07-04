@@ -33,20 +33,15 @@
 
     <%- include('../partials/header') %>
 
-        <main class="container">
-            <%- body %>
-        </main>
+        <%- body %>
 
-        <%- include('../partials/footer') %>
+            <%- include('../partials/footer') %>
 
-            <!-- Librairie externe (CDN) : doit venir AVANT app.js -->
-            <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js" defer></script>
+                <!-- Librairie externe (CDN) : doit venir AVANT app.js -->
+                <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js" defer></script>
 
-            <!-- Scripts globaux -->
-            <script src="/js/main.js" defer></script>
-
-            <!-- Scripts page-spécifiques -->
-            <%- typeof pageScripts !=='undefined' ? pageScripts : '' %>
+                <!-- Scripts page-spécifiques -->
+                <%- typeof pageScripts !=='undefined' ? pageScripts : '' %>
 </body>
 
 </html>

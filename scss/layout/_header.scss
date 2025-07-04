@@ -1,151 +1,297 @@
-// Styles du header
+@use "../abstracts" as *;
+
+// Header moderne
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
-    background-color: rgba(18, 18, 18, 0.9);
-    box-shadow: $box-shadow;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    background: rgba(15, 15, 35, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    @include smooth-transition();
+
+    &.scrolled {
+        background: rgba(15, 15, 35, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
 }
 
-Navigation
+// Navigation moderne
 nav {
     @include flex(row, space-between, center);
-    padding: 0px 20px;
-    box-sizing: border-box;
-    width: 100%;
-    margin: auto;
+    padding: 1rem 2rem;
+    max-width: $max-width;
+    margin: 0 auto;
     position: relative;
+
+    @include mobile {
+        padding: 0.75rem 1rem;
+    }
 }
 
-// Logo
+// Logo moderne
 .header-logo {
+    @include flex(row, center, center);
+    z-index: 1001;
+
     img {
         width: 120px;
-        @include transition(transform);
-
-        @include tablet {
-            width: 100px;
-        }
+        height: auto;
+        @include smooth-transition();
+        filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 
         @include mobile {
-            width: 90px;
+            width: 100px;
         }
     }
 
     &:hover img {
         transform: scale(1.05);
+        filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.5));
     }
 }
 
-// Menu principal
-.header-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
+// Menu burger moderne
+.burger {
+    display: none;
     font-size: 1.5rem;
+    cursor: pointer;
+    color: $text-light;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    @include smooth-transition();
 
-    @include tablet {
-        display: none;
+    @include mobile {
+        display: block;
+    }
+
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+#toggle {
+    display: none;
+
+    &:checked ~ nav .header-menu {
+        @include mobile {
+            transform: translateX(0);
+        }
+    }
+}
+
+// Menu principal moderne
+.header-menu {
+    @include flex(row, center, center, nowrap, 2rem);
+    list-style: none;
+
+    @include mobile {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
-        height: 60vh;
-        background-color: rgba(18, 18, 18, 0.98);
-        flex-direction: column;
-        padding: 80px 0 20px;
-        box-shadow: $box-shadow;
-        z-index: 99;
-        justify-content: center;
+        height: 100vh;
+        background: rgba(15, 15, 35, 0.98);
+        backdrop-filter: blur(20px);
+        @include flex(column, center, center, nowrap, 2rem);
+        transform: translateX(-100%);
+        @include smooth-transition();
+        z-index: 1000;
 
-        li {
-            margin: 15px 0;
-
-            a {
-                text-align: center;
-                font-size: 1.2rem;
-                padding: 15px 20px;
-            }
+        #toggle:checked ~ & {
+            transform: translateX(0);
         }
     }
 
-    li a {
-        border: none;
-        margin: 0 15px;
-        text-decoration: none;
-        color: $text-light;
-        padding: 10px 20px;
-        display: block;
-        box-sizing: border-box;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        @include transition;
+    li {
         position: relative;
-        overflow: hidden;
 
-        &::after {
-            @include pseudo;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: $gradient-primary;
-            transition: width 0.25s cubic-bezier(0.65, 0, 0.35, 1);
-        }
+        a {
+            display: block;
+            color: $text-light;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: $border-radius-sm;
+            @include smooth-transition();
+            position: relative;
+            overflow: hidden;
 
-        &:hover {
-            color: $primary-color;
+            @include mobile {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            // Effet de survol moderne
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $gradient-primary;
+                opacity: 0;
+                @include smooth-transition();
+                z-index: -1;
+            }
 
             &::after {
-                width: 100%;
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background: $gradient-primary;
+                @include smooth-transition();
+                transform: translateX(-50%);
+            }
+
+            &:hover,
+            &.is-active {
+                color: $text-light;
+
+                &::before {
+                    opacity: 0.1;
+                }
+
+                &::after {
+                    width: 80%;
+                }
+            }
+
+            &.is-active {
+                background: rgba(99, 102, 241, 0.1);
+
+                &::after {
+                    width: 80%;
+                }
             }
         }
     }
 }
 
-// Menu burger pour mobile
-.burger,
-#toggle {
-    display: none;
-}
+// Profil en-tête moderne
+.head {
+    @include flex(column, center, center);
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    background: $gradient-accent;
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+    position: relative;
+    overflow: hidden;
 
-@include tablet {
-    label.burger {
-        width: 40px;
-        height: 40px;
-        @include flex(row, center, center);
+    @include mobile {
+        padding: 5rem 1rem 3rem;
+    }
+
+    // Effet de particules
+    &::before {
+        content: "";
         position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-30%);
-        font-size: 30px;
-        color: $accent-light;
-        cursor: pointer;
-        background: rgba(67, 97, 238, 0.1);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g"><stop offset="0%" stop-color="rgba(255,255,255,0.3)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="50" cy="50" r="2" fill="url(%23g)"/></svg>')
+            repeat;
+        background-size: 100px 100px;
+        opacity: 0.3;
+        animation: float 20s linear infinite;
+    }
+
+    .imgProfil {
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
-        @include transition;
-        display: flex;
-        z-index: 1000;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        @include smooth-transition();
+
+        @include mobile {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1.5rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: $gradient-primary;
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
 
         &:hover {
-            background: $primary-color;
-            color: $text-light;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include smooth-transition();
         }
     }
 
-    .header-logo {
-        margin: 0 auto;
-        position: relative;
-        z-index: 1000;
-    }
+    .nom {
+        z-index: 1;
 
-    #toggle:checked ~ .header-menu {
-        height: 60vh;
-        display: flex;
+        .nomProfil {
+            h1 {
+                font-size: clamp(2rem, 4vw, 3rem);
+                margin-bottom: 0.5rem;
+                color: $text-light;
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .titreProfil {
+            h2 {
+                font-size: clamp(1.2rem, 2vw, 1.5rem);
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 0;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// Animations
+@include keyframes(float) {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@include keyframes(rotate) {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

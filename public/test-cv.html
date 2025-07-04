@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Bannière CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .head-boxed {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            min-height: 500px;
+            gap: 50px;
+            padding: 150px 100px 80px 100px;
+            background-image: url("/img/is_web.avif");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            align-items: center;
+        }
+
+        .head-boxed::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .head-boxed>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .imgProfil {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 350px;
+            height: 350px;
+        }
+
+        .imgProfil img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .nom {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-right: 3rem;
+        }
+
+        h1.nomProfil {
+            color: #fff;
+            font-size: 4rem;
+            margin: 0 0 0.3em 0;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2.titreProfil {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 400;
+            margin: 0;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="head-boxed">
+        <div class="imgProfil">
+            <img src="/img/photo_profil.jpg" alt="Avatar Guillaume Maignaut">
+        </div>
+        <div class="nom">
+            <h1 class="nomProfil">Guillaume Maignaut</h1>
+            <h2 class="titreProfil">Développeur Full-Stack</h2>
+        </div>
+    </section>
+
+    <div style="padding: 2rem; background: white;">
+        <h2>Test de la bannière CV</h2>
+        <p>Cette page montre comment la bannière devrait s'afficher.</p>
+        <ul>
+            <li>Hauteur de bannière : 500px minimum</li>
+            <li>Photo : 320px × 320px</li>
+            <li>Texte bien visible avec ombre</li>
+            <li>Overlay sombre pour contraste</li>
+        </ul>
+    </div>
+</body>
+
+</html>

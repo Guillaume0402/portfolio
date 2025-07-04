@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 // Définition des animations keyframes
 @include keyframes(gradient-shift) {
     0% {
@@ -22,49 +24,97 @@
     }
 }
 
-// Animation du titre
+// Animation du titre - Version flashy et moderne
 .title {
     position: relative;
-}
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem;
+    text-align: center;
 
-// Style pour tous les spans à l'intérieur des span-container
-.span-container span {
-    @include transition(0.3s, cubic-bezier(0.175, 0.885, 0.32, 1.275));
-    will-change: transform;
-    display: inline-block;
-    white-space: pre;
-    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
+    // Gradient animé flashy
+    background: linear-gradient(
+        45deg,
+        #ff6b6b,
+        #4ecdc4,
+        #45b7d1,
+        #96ceb4,
+        #feca57,
+        #ff9ff3,
+        #54a0ff
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-flow 3s ease-in-out infinite;
 
-// Style pour les spans individuels créés par JS
-.span-container span span {
-    transition-property: transform;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+    // Ombre flashy
+    text-shadow: 0 0 20px rgba(255, 107, 107, 0.5),
+        0 0 40px rgba(78, 205, 196, 0.3), 0 0 60px rgba(69, 183, 209, 0.2);
 
-.s1,
-.s2 {
-    @include absolute-center;
-    width: max-content;
-}
-
-.s1 span {
-    transform-origin: bottom;
-}
-
-.s2 span {
-    transform-origin: top;
-    transform: translateY(100%) rotateX(90deg);
-}
-
-.title:hover {
-    .s1 span {
-        transform: translateY(-100%) rotateX(-90deg);
+    // Effet de brillance
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent
+        );
+        animation: shine 2s ease-in-out infinite;
+        z-index: 1;
     }
 
-    .s2 span {
-        transform: translateY(0%) rotateX(0deg);
+    // Effet hover encore plus flashy
+    &:hover {
+        animation: gradient-flow 0.5s ease-in-out infinite,
+            pulse 1s ease-in-out infinite;
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    @include mobile {
+        font-size: clamp(2rem, 4vw, 2.5rem) !important;
+    }
+}
+
+// Animation du gradient
+@include keyframes(gradient-flow) {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+// Animation de brillance
+@include keyframes(shine) {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+// Animation de pulsation
+@include keyframes(pulse) {
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.5),
+            0 0 40px rgba(78, 205, 196, 0.3), 0 0 60px rgba(69, 183, 209, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 107, 107, 0.8),
+            0 0 60px rgba(78, 205, 196, 0.6), 0 0 90px rgba(69, 183, 209, 0.4);
     }
 }
 
@@ -97,5 +147,109 @@
     .from-right.visible {
         opacity: 1;
         transform: translateX(0) scale(1);
+    }
+}
+
+// ===== ANIMATIONS POUR LE CV FLASHY =====
+
+// Animation du gradient flashy pour le nom
+@include keyframes(gradient-flash) {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    75% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// Animation de pulsation du texte
+@include keyframes(text-pulse) {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.02);
+        filter: brightness(1.2);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+// Animation de brillance qui traverse le texte
+@include keyframes(shine-sweep) {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+// Animation des particules scintillantes
+@include keyframes(sparkle) {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+}
+
+// Animation métallique pour le titre
+@include keyframes(metallic-shine) {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// Animation de flottement pour le titre
+@include keyframes(float-text) {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+// Animation de lueur qui pulse
+@include keyframes(glow-pulse) {
+    0% {
+        opacity: 0.2;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(1.05);
     }
 }
