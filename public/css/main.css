@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 *,
@@ -196,7 +197,6 @@ ol li {
 }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -207,7 +207,6 @@ ol li {
 }
 
 .boxed {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -1281,6 +1280,7 @@ footer .footer-content,
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
+    align-items: start;
   }
 }
 footer .footer-nav,
@@ -1300,10 +1300,11 @@ footer .footer-nav h4,
   color: #f8fafc;
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   position: relative;
   display: block;
   width: 100%;
+  line-height: 1.4;
 }
 @media screen and (max-width: 768px) {
   footer .footer-nav h4,
@@ -1440,7 +1441,7 @@ footer .copyright p span,
 
 .slider {
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   max-height: 800px;
   background: linear-gradient(135deg, rgba(15, 15, 35, 0.8), rgba(26, 26, 46, 0.9));
   position: relative;
@@ -1495,10 +1496,12 @@ footer .copyright p span,
 .slider-content {
   width: 100%;
   max-width: 800px;
+  height: auto;
   position: relative;
   text-align: center;
   padding: 2rem;
   z-index: 2;
+  margin-top: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2084,78 +2087,58 @@ footer .copyright p span,
   }
 }
 
-.page-cv {
-  padding-top: 2rem;
-  max-width: 1000px;
+.cv-wrapper {
+  max-width: 1200px;
   margin: 0 auto;
-}
-@media screen and (max-width: 768px) {
-  .page-cv {
-    padding-top: 1rem;
-  }
+  padding: 0 1rem;
 }
 
-section {
-  width: 100%;
-}
-
-head {
-  background-image: url("../../public/img/is_web.avif");
-  background-size: cover;
-  background-position: center;
-  min-height: 120px;
-  padding: 0;
-  margin-bottom: 0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-.head-boxed {
-  width: 100% !important;
+.head.head-boxed {
   display: flex;
   flex-direction: row-reverse;
-  min-height: 450px !important;
-  gap: 50px;
-  padding: 140px 80px 60px 80px !important;
+  align-items: center;
+  gap: 3rem;
+  min-height: 400px;
+  padding: 4rem 3rem;
   background-image: url("/img/is_web.avif");
   background-size: cover;
   background-position: center;
+  border-radius: 16px;
   position: relative;
-  align-items: center;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
 }
-.head-boxed::before {
+.head.head-boxed::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
   z-index: 1;
 }
-.head-boxed > * {
+.head.head-boxed > * {
   position: relative;
   z-index: 2;
 }
 
 .imgProfil {
-  display: flex !important;
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 320px !important;
-  height: 320px !important;
-  margin-top: 50px;
 }
 .imgProfil img {
-  width: 300px !important;
-  height: 300px !important;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  background: #fff;
   object-fit: cover;
-  border: 8px solid #fff;
+  border: 6px solid #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
 }
 .imgProfil img:hover {
@@ -2164,261 +2147,260 @@ head {
 
 .nom {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-right: 3rem !important;
-  min-width: 0;
-  max-width: calc(100% - 350px);
-  color: #ffffff !important;
+  color: #fff;
 }
-
-h1.nomProfil {
-  font-size: clamp(2.8rem, 6vw, 5rem) !important;
-  margin: 0 0 0.3em 0;
+.nom .nomProfil {
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
+  margin: 0 0 0.5rem 0;
   line-height: 1.1;
-  position: relative;
-  color: #ffffff !important;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-h2.titreProfil {
-  font-size: clamp(1.5rem, 4vw, 2.8rem) !important;
-  font-weight: 500;
+.nom .titreProfil {
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-weight: 400;
   margin: 0;
-  position: relative;
-  color: #f8f9fa !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.5);
-  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.1);
-  animation: subtle-glow 6s ease-in-out infinite;
+  color: #e2e8f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-#diplome,
-#experiences,
-#langages {
-  background-color: #fff;
-  color: #222;
-  padding: 2rem 3rem;
-  margin: 2rem 0;
+.cv-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.cv-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  background: #2d3748;
+  color: #fff;
   border-radius: 12px;
+  padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cv-sidebar .cv-sidebar-inner section {
+  margin-bottom: 2rem;
+}
+.cv-sidebar .cv-sidebar-inner section:last-child {
+  margin-bottom: 0;
+}
+.cv-sidebar h2 {
+  font-size: 1.3rem;
+  color: #90cdf4;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #4a5568;
+  padding-bottom: 0.5rem;
+}
+.cv-sidebar .contact-info p {
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+.cv-sidebar .contact-info p i {
+  color: #90cdf4;
+  width: 16px;
+  flex-shrink: 0;
+}
+.cv-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cv-sidebar ul li {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+.cv-sidebar ul li::before {
+  content: "•";
+  color: #90cdf4;
+  position: absolute;
+  left: 0;
+}
+.cv-sidebar p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+.cv-sidebar p strong {
+  color: #90cdf4;
+  font-weight: 600;
 }
 
-#diplome h2,
-#experiences h2,
-#langages h2 {
-  color: #6366f1;
-  font-size: 1.5em;
-  margin-bottom: 1.5em;
+.cv-main {
+  flex: 1;
+  background: #1a202c;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.cv-main section {
+  margin-bottom: 2.5rem;
+}
+.cv-main section:last-child {
+  margin-bottom: 0;
+}
+.cv-main h2 {
+  font-size: 1.8rem;
+  color: #63b3ed;
+  margin-bottom: 1.5rem;
   font-weight: 600;
   position: relative;
+  padding-bottom: 0.5rem;
 }
-#diplome h2::after,
-#experiences h2::after,
-#langages h2::after {
+.cv-main h2::after {
   content: "";
   position: absolute;
-  bottom: -8px;
+  bottom: 0;
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(135deg, #6366f1, #e11d48);
+  background: linear-gradient(90deg, #63b3ed, #4299e1);
   border-radius: 2px;
 }
-
-#diplome p {
-  color: #333;
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin-bottom: 0.8em;
-}
-#diplome p strong {
-  color: #6366f1;
-  font-weight: 600;
-}
-#diplome .annee {
-  color: #666;
-  font-size: 1em;
-  font-style: italic;
-  margin-bottom: 0;
+.cv-main p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #cbd5e0;
 }
 
 .expe {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 2px solid #232336;
+  border-bottom: 1px solid #4a5568;
 }
 .expe:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
 .expe h3 {
-  color: #740404 !important;
-  font-size: 1.2em;
+  color: #f56565;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin: 0 0 0.5em 0;
-  line-height: 1.3;
+  margin: 0 0 0.5rem 0;
 }
-
-.expe-date {
-  color: #e11d48;
-  font-size: 0.95em;
-  margin-bottom: 0.8em;
+.expe h4 {
+  color: #90cdf4;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+.expe .expe-date {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+.expe .expe-lieu {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
 }
-
-.expe-lieu {
-  color: #181818;
-  font-size: 1.1em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
+.expe .expe-descp p {
+  margin: 0.4rem 0;
+  color: #cbd5e0;
+  font-size: 0.95rem;
 }
 
-.expe-descp {
-  color: #181818;
-  font-size: 1em;
-  margin-bottom: 0;
+.diplome-item h3 {
+  color: #63b3ed;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+.diplome-item .annee {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+.diplome-item .lieu {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.diplome-item .description {
+  color: #cbd5e0;
   line-height: 1.6;
 }
 
-.expe-descp p {
-  margin: 0.5em 0;
-  color: #181818;
-}
-
-.frontend {
-  width: 100%;
+.competences-grid .competence-group {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 1rem;
+}
+.competences-grid .competence-item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  margin-top: 1em;
+  padding: 0.8rem 1rem;
+  background: #2d3748;
+  border-radius: 8px;
+  border-left: 4px solid #63b3ed;
 }
-
-.frontend figure img {
-  width: 100px;
-  height: 100px;
-  display: block;
+.competences-grid .competence-item .tech-name {
+  font-weight: 600;
+  color: #e2e8f0;
 }
-
-.frontend figure figcaption {
-  text-align: center;
-  font-size: 1.2em;
-  color: #222;
-}
-
-.cv-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  background: transparent;
-}
-.cv-layout .cv-sidebar {
-  width: 32%;
-  min-width: 220px;
-  max-width: 340px;
-  background: #181a22;
-  color: #f3f3f3;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  margin: 1.5rem 2rem 1.5rem 0;
-  padding: 2.5rem 2rem 2.5rem 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-.cv-layout .cv-main {
-  width: 68%;
-  background: #232336;
-  color: #f3f3f3;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  margin: 1.5rem 0 1.5rem 2rem;
-  padding: 2.5rem 2.5rem 2.5rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-#profil h2 {
-  color: #f3f3f3 !important;
+.competences-grid .competence-item .niveau {
+  font-size: 0.9rem;
+  color: #90cdf4;
+  font-weight: 500;
 }
 
 @media (max-width: 900px) {
   .cv-layout {
     flex-direction: column;
+    gap: 1.5rem;
   }
-  .cv-layout .cv-sidebar,
-  .cv-layout .cv-main {
+  .cv-sidebar {
     width: 100%;
-    max-width: 100%;
   }
-}
-@media screen and (max-width: 1200px) {
-  .head-boxed {
-    min-height: 300px;
-    padding: 100px 40px 30px 40px;
-    gap: 30px;
+  .head.head-boxed {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
   }
-  .imgProfil img {
-    width: 240px;
-    height: 240px;
-  }
-}
-@media screen and (max-width: 991px) {
-  .head-boxed {
-    min-height: 280px;
-    padding: 90px 30px 25px 30px;
-    gap: 25px;
-  }
-  .imgProfil img {
+  .imgProfil {
     width: 200px;
     height: 200px;
   }
-  .nom {
-    padding-right: 1rem;
+  .imgProfil img {
+    width: 180px;
+    height: 180px;
   }
 }
-@media screen and (max-width: 768px) {
-  .head-boxed {
-    flex-direction: column;
-    min-height: unset;
-    gap: 20px;
-    padding: 80px 20px 30px 20px;
-    text-align: center;
+@media (max-width: 600px) {
+  .cv-wrapper {
+    padding: 0 0.5rem;
   }
-  .imgProfil img {
+  .head.head-boxed {
+    padding: 2rem 1rem;
+  }
+  .cv-sidebar,
+  .cv-main {
+    padding: 1.5rem;
+  }
+  .imgProfil {
     width: 150px;
     height: 150px;
-    margin: 0 auto;
   }
-  .nom {
-    padding-right: 0;
+  .imgProfil img {
+    width: 140px;
+    height: 140px;
   }
-  h1.nomProfil {
+  .nom .nomProfil {
     font-size: 2rem;
   }
-  h2.titreProfil {
+  .nom .titreProfil {
     font-size: 1.2rem;
-  }
-  #diplome,
-  #experiences,
-  #langages {
-    padding: 1.5rem 2rem;
-    margin: 1.5rem 0;
-  }
-  .frontend {
-    gap: 15px;
-  }
-  .frontend figure {
-    width: 70px;
-  }
-  .frontend figure img {
-    width: 50px;
-    height: 50px;
-  }
-  .frontend figure figcaption {
-    font-size: 0.9em;
   }
 }
 .page-mentions .mentions-legales {

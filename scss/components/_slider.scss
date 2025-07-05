@@ -3,7 +3,7 @@
 // Slider moderne et responsive
 .slider {
     width: 100%;
-    height: 70vh; // Hauteur réduite pour un meilleur ratio
+    height: 50vh; // Hauteur réduite pour un meilleur ratio
     max-height: 800px; // Limite la hauteur maximale
     background: linear-gradient(
         135deg,
@@ -79,10 +79,12 @@
 .slider-content {
     width: 100%;
     max-width: 800px;
+    height: auto;
     position: relative;
     text-align: center;
     padding: 2rem;
     z-index: 2;
+    margin-top: 130px;
 
     // Centrage vertical parfait avec un léger décalage vers le bas
     display: flex;

@@ -36,7 +36,7 @@ footer,
         grid-template-columns: 1fr 1fr 1fr;
         gap: 60px;
         margin-bottom: 40px;
-        align-items: start; // Aligner les colonnes en haut
+        align-items: start; // Alignement en haut pour éviter les décalages
 
         @include tablet {
             grid-template-columns: 1fr 1fr;
@@ -47,6 +47,7 @@ footer,
             grid-template-columns: 1fr;
             gap: 40px;
             text-align: center;
+            align-items: start;
         }
     }
 
@@ -64,10 +65,11 @@ footer,
             color: $text-light;
             font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0; // Margin uniforme pour tous les titres
             position: relative;
-            display: block; // Changé de inline-block à block
+            display: block;
             width: 100%;
+            line-height: 1.4; // Ligne de hauteur uniforme
 
             @include mobile {
                 text-align: center;
