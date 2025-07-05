@@ -8,7 +8,7 @@
         "dev": "nodemon src/server.js",
         "start": "node src/server.js",
         "sass": "sass scss/main.scss:public/css/main.css",
-        "sass:watch": "sass --watch scss:public/css --style expanded",
+        "sass:watch": "sass --watch scss/main.scss:public/css/main.css --style expanded",
         "build": "sass scss/main.scss:public/css/main.css --style compressed"
     },
     "keywords": [

@@ -7,77 +7,179 @@
         <% /* --- scripts propres à cette page (FontAwesome) --- */ %>
             <% pageScripts=` <script src="https://kit.fontawesome.com/8f12efb992.js" crossorigin="anonymous" defer>
                 </script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        document.body.classList.add('cv-page');
+                    });
+                </script>
                 `;
                 %>
 
-                <!-- =========== BANNIÈRE / EN-TÊTE DE PAGE =========== -->
-                <section class="head head-boxed">
-                    <div class="imgProfil">
-                        <img src="/img/photo_profil.jpg" alt="Avatar Guillaume Maignaut">
-                    </div>
-                    <div class="nom">
-                        <h1 class="nomProfil">Guillaume Maignaut</h1>
-                        <h2 class="titreProfil">Développeur Full-Stack</h2>
-                    </div>
-                </section>
-
-                <main class="container page-cv">
-                    <!-- =========== DIPLÔME =========== -->
-                    <section id="diplome">
-                        <h2>Diplôme</h2>
-                        <p><strong>Certificat d’Aptitude Professionnelle Restaurant</strong></p>
-                        <p class="annee">10 juillet 2001</p>
-                    </section>
-
-                    <!-- =========== EXPÉRIENCES =========== -->
-                    <section id="experiences">
-                        <h2>Expériences</h2>
-
-                        <article class="expe">
-                            <h3>Développeur Web – TERRA AQUATICA</h3>
-                            <p class="expe-date">juil. 2011 – déc. 2024</p>
-                            <p class="expe-descp">
-                                Développement et optimisation du site e-commerce, intégration produit,
-                                automatisation de processus internes.
-                            </p>
-                        </article>
-
-                        <article class="expe">
-                            <h3>Employé Polyvalent – AU COMPTOIR</h3>
-                            <p class="expe-date">mai 2009 – fév. 2010</p>
-                            <p class="expe-descp">
-                                Support technique & administratif, mise en place d’outils de gestion.
-                            </p>
-                        </article>
-
-                        <article class="expe">
-                            <h3>Assistant informatique – SOCIÉTÉ NOUVELLE GERSICA</h3>
-                            <p class="expe-date">nov. 2001 – juin 2005</p>
-                            <p class="expe-descp">
-                                Suivi des systèmes de gestion internes et maintenance du parc informatique.
-                            </p>
-                        </article>
-                    </section>
-
-                    <!-- =========== LANGAGES =========== -->
-                    <section id="langages">
-                        <h2>Langages</h2>
-                        <div class="frontend">
-                            <figure><img src="/img/icons8-html-100.png" alt="HTML">
-                                <figcaption>HTML</figcaption>
-                            </figure>
-                            <figure><img src="/img/icons8-css-100.png" alt="CSS">
-                                <figcaption>CSS</figcaption>
-                            </figure>
-                            <figure><img src="/img/icons8-javascript-100.png" alt="JavaScript">
-                                <figcaption>JavaScript</figcaption>
-                            </figure>
-                            <figure><img src="/img/icons8-php-100.png" alt="PHP">
-                                <figcaption>PHP</figcaption>
-                            </figure>
+                <!-- =========== WRAPPER PRINCIPAL POUR CENTRAGE =========== -->
+                <div class="cv-wrapper">
+                    <!-- =========== BANNIÈRE / EN-TÊTE DE PAGE =========== -->
+                    <section class="head head-boxed">
+                        <div class="imgProfil">
+                            <img src="/img/photo_profil.jpg" alt="Avatar Guillaume Maignaut">
+                        </div>
+                        <div class="nom">
+                            <h1 class="nomProfil">Guillaume Maignaut</h1>
+                            <h2 class="titreProfil">Développeur Full-Stack</h2>
                         </div>
                     </section>
-                </main>
+
+                    <main class="cv-layout">
+                        <!-- COLONNE GAUCHE (SIDEBAR) -->
+                        <aside class="cv-sidebar">
+                            <div class="cv-sidebar-inner">                            
+                                <!-- =========== CONTACT =========== -->
+                                <section id="contact">
+                                    <h2>Contact</h2>
+                                    <div class="contact-info">
+                                        <p><i class="fas fa-envelope"></i> g.maignaut@gmail.com</p>
+                                        <p><i class="fas fa-phone"></i> 0650428039</p>
+                                        <p><i class="fas fa-map-marker-alt"></i> 32500 Fleurance</p>
+                                        <p><i class="fas fa-car"></i> Permis B</p>
+                                    </div>
+                                </section>
+
+                                <!-- =========== LANGUES =========== -->
+                                <section id="langues">
+                                    <h2>Langues</h2>
+                                    <p><strong>Anglais</strong> A2</p>
+                                </section>
+
+                                <!-- =========== INTÉRÊTS =========== -->
+                                <section id="interets">
+                                    <h2>Intérêts</h2>
+                                    <ul>
+                                        <li>Monde numérique</li>
+                                        <li>Animés</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </aside>
+
+                        <!-- COLONNE DROITE (CONTENU PRINCIPAL) -->
+                        <section class="cv-main">
+                            <!-- =========== PROFIL =========== -->
+                            <section id="profil">
+                                <h2>Profil</h2>
+                                <p>
+                                    Développeur web en reconversion, fort de 14 ans d'expérience en environnement
+                                    exigeant.
+                                    Autodidacte passionné, j'ai réalisé plusieurs projets visibles sur GitHub : to-do
+                                    list
+                                    en PHP, jeux en JS, système solaire en Sass, site de covoiturage, portfolio
+                                    responsive...
+                                    Curieux, rigoureux et motivé, je souhaite aujourd'hui professionnaliser mes
+                                    compétences
+                                    pour
+                                    devenir développeur full-stack.
+                                </p>
+                            </section>
+
+                            <!-- =========== EXPÉRIENCES =========== -->
+                            <section id="experiences">
+                                <h2>Expérience</h2>
+                                <article class="expe">
+                                    <h3>- Terra Aquatica -</h3>
+                                    <h4>Ouvrier de production</h4>
+                                    <p class="expe-date">juillet 2011 - Mai 2025</p>
+                                    <p class="expe-lieu">Fleurance</p>
+                                    <div class="expe-descp">
+                                        <p>• Gestion des opérations de production et de manutention</p>
+                                        <p>• Fabrications et conditionnement des engrais</p>
+                                        <p>• Préparation de commandes</p>
+                                        <p>• Forte implication dans la qualité, l'organisation et le travail d'équipe
+                                        </p>
+                                    </div>
+                                </article>
+                                <article class="expe">
+                                    <h3>- Divers employeurs -</h3>
+                                    <h4>Ouvrier intérimaire / CDI</h4>
+                                    <p class="expe-date">Mars 2007 - juillet 2011</p>
+                                    <p class="expe-lieu">Fleurance</p>
+                                    <div class="expe-descp">
+                                        <p>• Postes occupés en industrie, logistique, agroalimentaire et BTP</p>
+                                        <p>• Capacité d'adaptation rapide à différents environnements de travail</p>
+                                        <p>• Exécution de tâches physiques avec efficacité et rigueur</p>
+                                    </div>
+                                </article>
+                                <article class="expe">
+                                    <h3>- Brasserie Au Comptoir -</h3>
+                                    <h4>Serveur</h4>
+                                    <p class="expe-date">Mai 2005 - Mars 2007</p>
+                                    <p class="expe-lieu">Condom</p>
+                                    <div class="expe-descp">
+                                        <p>• Service en salle</p>
+                                        <p>• Gestion des stocks</p>
+                                        <p>• Facturation</p>
+                                    </div>
+                                </article>
+                                <article class="expe">
+                                    <h3>- Casino de Jeux -</h3>
+                                    <h4>Serveur / Barman</h4>
+                                    <p class="expe-date">Avril 2001 - Mai 2005</p>
+                                    <p class="expe-lieu">Castéra-Verduzan</p>
+                                    <div class="expe-descp">
+                                        <p>• Service au bar</p>
+                                        <p>• Préparation de cocktails</p>
+                                        <p>• Gestion des stocks</p>
+                                        <p>• Service en salle</p>
+                                    </div>
+                                </article>
+                            </section>
+
+                            <!-- =========== DIPLÔME =========== -->
+                            <section id="diplome">
+                                <h2>Diplôme</h2>
+                                <div class="diplome-item">
+                                    <h3>CAP Restaurant C.F.A</h3>
+                                    <p class="annee">2001</p>
+                                    <p class="lieu">Auch</p>
+                                    <p class="description">
+                                        Apprentissage des bases du service en salle, de l'accueil client et du
+                                        respect des règles d'hygiène dans la restauration.
+                                    </p>
+                                </div>
+                            </section>
+
+                            <!-- =========== COMPÉTENCES =========== -->
+                            <section id="competences">
+                                <h2>Compétences</h2>
+                                <div class="competences-grid">
+                                    <div class="competence-group">
+                                        <div class="competence-item">
+                                            <span class="tech-name">HTML</span>
+                                            <span class="niveau">Intermédiaire</span>
+                                        </div>
+                                        <div class="competence-item">
+                                            <span class="tech-name">CSS</span>
+                                            <span class="niveau">Intermédiaire</span>
+                                        </div>
+                                        <div class="competence-item">
+                                            <span class="tech-name">PHP</span>
+                                            <span class="niveau">Intermédiaire</span>
+                                        </div>
+                                        <div class="competence-item">
+                                            <span class="tech-name">JavaScript</span>
+                                            <span class="niveau">Débutant</span>
+                                        </div>
+                                        <div class="competence-item">
+                                            <span class="tech-name">MySQL</span>
+                                            <span class="niveau">Débutant</span>
+                                        </div>
+                                        <div class="competence-item">
+                                            <span class="tech-name">SASS</span>
+                                            <span class="niveau">Intermédiaire</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                    </main>
+                </div>
 
                 <% /* petit script pour l’année dans le footer — on peut le laisser dans main.js ou ici */ %>
                     <% pageScripts +=` <script>
