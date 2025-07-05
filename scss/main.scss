@@ -4,7 +4,132 @@
 @use "layout";
 @use "components";
 @use "pages";
-// (aucune page spécifique pour le moment)
 
-// Themes
-// (aucun thème alternatif pour le moment)
+// === RÉALISATIONS : Version simple et fonctionnelle ===
+
+// Carte de base
+.portfolio-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px; // Hauteur minimale fixe pour uniformiser
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+// Image de la carte
+.portfolio-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+// Contenu de la carte
+.portfolio-card .content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // Distribue l'espace uniformément
+}
+
+.portfolio-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.portfolio-card p {
+    margin: 0 0 1.5rem 0;
+    color: #4a5568;
+    line-height: 1.6;
+    flex-grow: 1; // Prend tout l'espace disponible
+}
+
+// Bouton GitHub
+.btn-github {
+    background: #24292e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    align-self: flex-start;
+    transition: background 0.2s ease;
+    margin-top: auto; // Pousse le bouton vers le bas
+}
+
+.btn-github:hover {
+    background: #0366d6;
+}
+
+// Overlay pour le projet principal uniquement
+.portfolio-card.featured {
+    position: relative;
+}
+
+.portfolio-card.featured .image-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px; // Même hauteur que les autres images
+}
+
+.portfolio-card.featured .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-card.featured .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(108, 99, 255, 0.9),
+        rgba(85, 72, 200, 0.9)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card.featured:hover .overlay {
+    opacity: 1;
+}
+
+.portfolio-card.featured:hover img {
+    transform: scale(1.05);
+}
+
+.btn-voir-projet {
+    background: #fff;
+    color: #6c63ff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-voir-projet:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}

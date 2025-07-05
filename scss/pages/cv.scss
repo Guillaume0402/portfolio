@@ -190,7 +190,7 @@ h2.titreProfil {
 .expe {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #232336;
 
     &:last-child {
         border-bottom: none;
@@ -198,7 +198,7 @@ h2.titreProfil {
     }
 
     h3 {
-        color: #333;
+        color: #740404 !important;
         font-size: 1.2em;
         font-weight: 600;
         margin: 0 0 0.5em 0;
@@ -213,11 +213,22 @@ h2.titreProfil {
     font-weight: 500;
 }
 
+.expe-lieu {
+    color: #181818;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
 .expe-descp {
-    color: #555;
+    color: #181818;
     font-size: 1em;
     margin-bottom: 0;
     line-height: 1.6;
+}
+.expe-descp p {
+    margin: 0.5em 0;
+    color: #181818;
 }
 
 .frontend {
@@ -272,23 +283,11 @@ h2.titreProfil {
         border: 1px solid rgba(255, 255, 255, 0.04);
     }
 }
-
-.cv-main,
-.cv-main * {
+#profil h2 {
     color: #f3f3f3 !important;
 }
-.cv-main h2,
-.cv-main h3,
-.cv-main h4 {
-    color: #fff !important;
-}
-.cv-main .expe-date,
-.cv-main .expe-lieu {
-    color: #b3b3b3 !important;
-}
-.cv-main .expe-descp p {
-    color: #e0e0e0 !important;
-}
+
+
 
 @media (max-width: 900px) {
     .cv-layout {
